@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
-  before_create :create_remember_digest
+  before_create :remember
+  after_create  :create_digest
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :name,  presence: true, length: { maximum: 50 }
@@ -20,13 +21,11 @@ class User < ApplicationRecord
   end
  
   def remember 
-    self.remember_token = User.new_token 
-    update_attribute(:remember_digest, User.digest(remember_token))
+    remember_token  = User.new_token
+    @digest = User.digest(remember_token)
   end
 
-  private 
-
-    def create_remember_digest
-      self.remember_token = User.new_token
-    end
+  def create_digest
+    update_attribute(:remember_digest, @digest)
+  end
 end
