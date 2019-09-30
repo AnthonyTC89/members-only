@@ -1,8 +1,29 @@
-<h3>
-  <% if logged_in? %><%= current_user.name %><% end %>'s Clubhouse
-</h3>
+<h1 class="text-danger">
+  <% if logged_in? %><%= current_user.name %>'s<% end %> Clubhouse
+</h1>
 
-<ul class="list-inline">
+<div class="d-flex" >
+  
+  <div class="header">
+  <div><%= link_to "Home", root_path %></div>
+  <% if logged_in? %>
+    <div><%= link_to "New post", "posts/new" %></div>
+  <% end %>
+  </div>
+
+  <div class="header">
+  <% if logged_in? %>
+    <div><%= link_to "Log out", logout_path, method: :delete %></div>
+  <% else %>
+    <div><%= link_to "Log In", login_path %></div>
+  <% end %>
+  </div>
+</div>
+
+
+
+
+<ul class="list-inline d-flex header">
   <li><%= link_to "Home", root_path %>
   <% if logged_in? %>
     <li><%= link_to "New post", "posts/new" %>
