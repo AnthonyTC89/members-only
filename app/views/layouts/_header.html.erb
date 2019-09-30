@@ -2,27 +2,26 @@
   <% if logged_in? %><%= current_user.name %>'s<% end %> Clubhouse
 </h1>
 
-<div class="d-flex" >
-  
-  <div class="header">
-  <div><%= link_to "Home", root_path %></div>
+<div class="main-menu">
+  <div>
+  <%= link_to "Home", root_path %>
   <% if logged_in? %>
-    <div><%= link_to "New post", "posts/new" %></div>
+    <%= link_to "New post", "posts/new" %>
   <% end %>
   </div>
 
-  <div class="header">
+  <div>
   <% if logged_in? %>
-    <div><%= link_to "Log out", logout_path, method: :delete %></div>
+    <%= link_to "Log out", logout_path, method: :delete %>
   <% else %>
-    <div><%= link_to "Log In", login_path %></div>
+   <%= link_to "Log In", login_path %>
   <% end %>
   </div>
 </div>
 
 
 
-
+<!--
 <ul class="list-inline d-flex header">
   <li><%= link_to "Home", root_path %>
   <% if logged_in? %>
@@ -32,3 +31,4 @@
     <li><%= link_to "Log In", login_path %>
   <% end %>
 </ul>
+-->

@@ -2,11 +2,17 @@
 @import "bootstrap";
 
 
-.header{
+.container{
+    max-width: 75%;
+}
+.main-menu{
     background-color: mediumaquamarine;
-    a{
+    display: flex;
+    justify-content: space-between;
+    div a{
         color: black;
         font-size: 2rem;
+        margin: 1rem;
+
     }
-    
 }

@@ -13,7 +13,7 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr class="row">
-        <td class="col-3"><%= post.title %></td>
+        <td class="col-3 "><%= post.title %></td>
         <td class="col-3"><%= post.content %></td>
         <% if logged_in? %>
             <td class="col-3"><%= User.find(post.user_id).name %></td>
