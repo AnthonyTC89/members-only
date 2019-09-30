@@ -24,7 +24,6 @@ module SessionsHelper
         @current_user = user
       end
     end
-   
   end
 
   def remember_cookies(user)
