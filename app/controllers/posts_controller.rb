@@ -23,10 +23,10 @@ class PostsController < ApplicationController
   private 
 
   def require_login
-    unless logged_in?
-      flash[:error] = "You must be logged in to make/edit posts"
-      redirect_to login_path
-    end
+    return if logged_in?
+    
+    flash[:error] = "You must be logged in to make/edit posts"
+    redirect_to login_path
   end
 
   def post_params
