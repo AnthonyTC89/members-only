@@ -7,10 +7,12 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       log_in @user
       remember_cookies @user
+      redirect_to '/posts'
     else
       flash.now[:danger] = 'Invalid email/password combination'
-      redirect_to root_url
+      render 'new'
     end
+    
   end
 
   def destroy

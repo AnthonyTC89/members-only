@@ -1,13 +1,17 @@
 class PostsController < ApplicationController
-  before_action :require_login
+  before_action :require_login, only:[:new, :create]
 
   def new
   end
 
   def create 
+    @post = Post.new(post_params)
+    @post.save
+    redirect_to '/posts'
   end
 
   def index 
+    @posts = Post.all
   end
 
   private 
