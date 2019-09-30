@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
-  before_action :require_login, only:[:new, :create]
+  before_action :require_login, only: %i[new create]
 
-  def new
-  end
+  def new; end
 
-  def create 
+  def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.valid?
@@ -16,15 +17,15 @@ class PostsController < ApplicationController
     end
   end
 
-  def index 
+  def index
     @posts = Post.all
   end
 
-  private 
+  private
 
   def require_login
     unless logged_in?
-      flash[:error] = "You must be logged in to make/edit posts"
+      flash[:error] = 'You must be logged in to make/edit posts'
       redirect_to login_path
     end
   end
@@ -32,5 +33,4 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :content, :user_id)
   end
-
 end
