@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def create 
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
     @post.save
     redirect_to '/posts'
   end
@@ -22,4 +23,9 @@ class PostsController < ApplicationController
       redirect_to login_path
     end
   end
+
+  def post_params
+    params.require(:post).permit(:title, :content, :user_id)
+  end
+
 end
