@@ -7,8 +7,13 @@ class PostsController < ApplicationController
   def create 
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.save
-    redirect_to '/posts'
+    if @post.valid?
+      @post.save
+      redirect_to '/posts'
+    else
+      flash.now[:danger] = "Title/content can't be empty"
+      render 'new'
+    end
   end
 
   def index 

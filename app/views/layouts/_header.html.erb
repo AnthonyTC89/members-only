@@ -1,0 +1,13 @@
+<h3>
+  <% if logged_in? %><%= current_user.name %><% end %>'s Clubhouse
+</h3>
+
+<ul class="list-inline">
+  <li><%= link_to "Home", root_path %>
+  <% if logged_in? %>
+    <li><%= link_to "New post", "posts/new" %>
+    <li><%= link_to "Log out", logout_path, method: :delete %></li> 
+  <% else %>
+    <li><%= link_to "Log In", login_path %>
+  <% end %>
+</ul>
