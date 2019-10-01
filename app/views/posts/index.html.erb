@@ -1,0 +1,24 @@
+<h2 class="text-danger">Posts</h2>
+<table class="container">
+  <thead>
+    <tr class="row">
+      <th class="col-3">Title</th>
+      <th class="col-3">Content</th>
+      <% if logged_in? %>
+        <th class="col-3">User</th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr class="row">
+        <td class="col-3 "><%= post.title %></td>
+        <td class="col-3"><%= post.content %></td>
+        <% if logged_in? %>
+            <td class="col-3"><%= User.find(post.user_id).name %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

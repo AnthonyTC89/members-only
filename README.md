@@ -11,4 +11,3 @@ Instructions:
 3. Run `yarn install --check-files` (if requested)
 4. Run `rails db:setup` to start the database
 5. Run `rails server`
-6. Add some users using `rails console`
