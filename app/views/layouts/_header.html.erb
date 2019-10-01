@@ -4,32 +4,17 @@
 
 <div class="main-menu">
   <div>
-  <%= link_to "Home", root_path %>
-  <% if logged_in? %>
-    <%= link_to "New post", "posts/new" %>
-  <% end %>
+    <%= link_to "Home", root_path %>
+    <% if logged_in? %>
+      <%= link_to "New post", "posts/new" %>
+    <% end %>
   </div>
-
   <div>
-  <% if logged_in? %>
-    <%= link_to "Log out", logout_path, method: :delete %>
-  <% else %>
-    <%= link_to "Sign Up", signup_path %>
-    <%= link_to "Log In", login_path %>
-  <% end %>
+    <% if logged_in? %>
+      <%= link_to "Log out", logout_path, method: :delete %>
+    <% else %>
+      <%= link_to "Sign Up", signup_path %>
+      <%= link_to "Log In", login_path %>
+    <% end %>
   </div>
 </div>
-
-
-
-<!--
-<ul class="list-inline d-flex header">
-  <li><%= link_to "Home", root_path %>
-  <% if logged_in? %>
-    <li><%= link_to "New post", "posts/new" %>
-    <li><%= link_to "Log out", logout_path, method: :delete %></li> 
-  <% else %>
-    <li><%= link_to "Log In", login_path %>
-  <% end %>
-</ul>
--->
