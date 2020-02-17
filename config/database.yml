@@ -22,4 +22,6 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: members_only_production
+  username: members_only
+  password: <%= ENV['MEMBERS_ONLY_DATABASE_PASSWORD'] %>
